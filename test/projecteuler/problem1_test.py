@@ -1,8 +1,3 @@
-'''
-Created on 16.05.2010
-
-@author: Matthias
-'''
 import unittest
 from projecteuler.problem1 import is_multiple_of_3_or_5
 
