@@ -3,6 +3,11 @@ import time
 def accumulate(items):
     return reduce(lambda x,y: x+y, items)
 
+def sum_of(items):
+    return accumulate(items)
+
+def product_of(items):
+    return reduce(lambda x,y: x*y, items)
 
 def measure(f, *args):
     start = time.clock()
