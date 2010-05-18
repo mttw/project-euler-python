@@ -17,5 +17,5 @@ def solve(therange):
 
 
 result = solve(range(100, 1000))
-print("The largest palindrome made from the product of two 3-digit numbers " 
-      + "is %(result)d" % vars())
+print("The largest palindrome made from the product of two 3-digit numbers" 
+      + " is %(result)d" % vars())

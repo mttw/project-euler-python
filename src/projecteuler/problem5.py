@@ -25,5 +25,5 @@ def solve(ceiling):
        
 
 result = solve(20)
-print("The smallest number divisible by each of the numbers 1 to 20 " 
-      + "is %(result)d" % vars())
+print("The smallest number divisible by each of the numbers 1 to 20" 
+      + " is %(result)d" % vars())
