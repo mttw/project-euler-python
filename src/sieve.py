@@ -1,6 +1,7 @@
 import math
 from number import lsqrt
 
+
 def factorize_with_eratosthenes(number):
     primes_in_number = []
     for prime in gen_sieve_eratosthenes(lsqrt(number)):
