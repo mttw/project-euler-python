@@ -8,6 +8,10 @@ class Test(unittest.TestCase):
         self.assertEqual([2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41], 
                          [p for p in gen_sieve_eratosthenes(40)])
 
+        # TODO fix this test failure
+        self.assertEqual([2, 3, 5, 7], 
+                         [p for p in gen_sieve_eratosthenes(10)])
+
     def test_factorize_with_eratosthenes(self):
         self.assertEqual([1], factorize_with_eratosthenes(1))
         self.assertEqual([2], factorize_with_eratosthenes(2))
