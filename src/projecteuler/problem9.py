@@ -6,7 +6,9 @@ def solve(n):
     
     for a in range(0, int(n/2) + 1):
         asq = a**2
-        for b in range(a+1, int(n/2) + 1):
+        start = max(a+1, n/2 - a)
+        end = n/2
+        for b in range(start, end + 1):
             bsq = b**2
             csq_candidate = asq + bsq
             if(is_square(csq_candidate) and csq_candidate > bsq):
