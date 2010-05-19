@@ -2,9 +2,7 @@
 Discover the largest product of five consecutive digits in the 1000-digit number.
 '''
 from projecteuler import product_of
-
-def consecutive_subsets_of(items, size_of_subset):
-    return [ items[i:i+size_of_subset] for i in range(0, len(items) - size_of_subset + 1)]
+from grid import consecutive_subsets_of
 
 def solve(number, size_of_subset):
     largest_product = 0
