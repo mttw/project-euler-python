@@ -4,6 +4,10 @@ from number import * #@UnusedWildImport
 class Test(unittest.TestCase):
 
 
+    def test_is_square(self):
+        self.assertTrue(is_square(4))
+        self.assertFalse(is_square(5))
+
     def test_is_palindrome(self):
         self.assertTrue(is_palindrome(1))
         self.assertTrue(is_palindrome(11))
