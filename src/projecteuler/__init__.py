@@ -7,7 +7,7 @@ def sum_of(items):
     return accumulate(items)
 
 def product_of(items):
-    return reduce(lambda x,y: x*y, items)
+    return reduce(lambda x,y: x*y, items, 1)
 
 def measure(f, *args):
     start = time.clock()

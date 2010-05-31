@@ -3,6 +3,52 @@ from number import * #@UnusedWildImport
 
 class Test(unittest.TestCase):
 
+    def test_is_prime(self):
+        self.assertFalse(is_prime(1))
+        self.assertTrue(is_prime(2))
+        self.assertTrue(is_prime(3))
+        self.assertFalse(is_prime(4))
+        self.assertTrue(is_prime(5))
+        self.assertFalse(is_prime(6))
+
+    def test_is_pandigital(self):
+        self.assertTrue(is_pandigital(1))
+
+        self.assertTrue(is_pandigital(12))
+        self.assertTrue(is_pandigital(21))
+        
+        self.assertTrue(is_pandigital(123))
+        self.assertTrue(is_pandigital(312))
+
+        self.assertFalse(is_pandigital(0))
+        self.assertFalse(is_pandigital(2))
+
+        self.assertFalse(is_pandigital(13))
+        self.assertFalse(is_pandigital(11))
+        self.assertFalse(is_pandigital(23))
+        self.assertFalse(is_pandigital(31))
+
+
+    def test_divisors_of(self):
+        self.assertEquals([1], sorted(divisors_of(1)))
+        self.assertEquals([1,2], sorted(divisors_of(2)))
+        self.assertEquals([1,3], sorted(divisors_of(3)))
+        self.assertEquals([1,2,4], sorted(divisors_of(4)))
+        self.assertEquals([1,5], sorted(divisors_of(5)))
+        self.assertEquals([1,2,3,6], sorted(divisors_of(6)))
+
+    def test_square_divisors_of(self):
+        self.assertEquals([], square_divisors_of(1))
+        self.assertEquals([], square_divisors_of(2))
+        self.assertEquals([], square_divisors_of(3))
+        self.assertEquals([4], square_divisors_of(4))
+        self.assertEquals([4], square_divisors_of(8))
+        self.assertEquals([4], square_divisors_of(20))
+        self.assertEquals([4,16], square_divisors_of(16))
+
+        self.assertEquals([], square_divisors_of(35))
+        self.assertEquals([4,9,36], square_divisors_of(36))
+
 
     def test_is_square(self):
         self.assertTrue(is_square(4))
