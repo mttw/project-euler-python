@@ -10,35 +10,36 @@ from sieve import sieve_eratosthenes
 import math
 
 def find_all_digit_indices(n, digit):
-    nstr = str(n)
-    indices = []
-    for i in range(len(nstr)):
-        if int(nstr[i]) == digit:
-            indices.append(i)
-    return indices
+    digits = str(n)
+    return filter(lambda i: int(digits[i]) == digit, 
+                  range(len(digits)))
             
 
-def indices_of_same_digist(n):
+def indices_of_same_digist(n, k=2):
     groups = []
     distinct_digits = set([int(d) for d in str(n)])
     for digit in distinct_digits:
         indices = find_all_digit_indices(n, digit)
-        if len(indices) >= 2:
+        if len(indices) >= k:
             groups.append(indices)
     return groups
 
+def mask_string(s, indices, replacment = '*'):
+    masked_string = ''
+    for i in range(len(s)):
+        if i in indices: 
+            masked_string += '*'
+        else: 
+            masked_string += s[i]
+    return masked_string
+    
 def transform_starred(n, k):
-    groups = indices_of_same_digist(n)
     starred_numbers = []
-    nstr = str(n)
-    for group in groups:
+
+    for group in indices_of_same_digist(n, k):
         if len(group) >= k:
             for combination in combinations(group, k):
-                s = ''
-                for i in range(len(nstr)):
-                    if i in combination: s += '*'
-                    else: s += nstr[i]
-                starred_numbers.append(s)
+                starred_numbers.append(mask_string(str(n), combination, '*'))
     
     return starred_numbers
 
