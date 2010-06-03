@@ -3,15 +3,33 @@ from number import lsqrt
 
 
 def is_prime(n, sieve_map):
-    try:
-        sieve_map[n]
-        return True
-    except KeyError, e:
-        return False
+    return n in sieve_map
 
-def factorize_with_eratosthenes(number):
+def sieve_eratosthenes(ceiling): 
+    if ceiling==2: return [2]
+    elif ceiling<2: return []
+    s=range(3,ceiling+1,2)
+    mroot = ceiling ** 0.5
+    half=(ceiling+1)/2-1
+    i=0
+    m=3
+    while m <= mroot:
+        if s[i]:
+            j=(m*m-3)/2
+            s[j]=0
+            while j<half:
+                s[j]=0
+                j+=m
+        i=i+1
+        m=2*i+3
+    return [2]+[x for x in s if x]
+
+
+def factorize_with_eratosthenes(number, primes = None):
     primes_in_number = []
-    for prime in gen_sieve_eratosthenes(lsqrt(number)):
+    if not primes:
+        primes = gen_sieve_eratosthenes(lsqrt(number))
+    for prime in primes:
         while number % prime == 0:
             primes_in_number.append(prime)
             number = number / prime

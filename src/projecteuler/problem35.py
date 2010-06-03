@@ -4,10 +4,9 @@ How many circular primes are there below one million?
 
 from sieve import gen_sieve_eratosthenes, is_prime
 from number import circulate
+from projecteuler import boolean_product_of
 import time
 
-def boolean_product_of(values):
-    return reduce(lambda x,y: x & y, values, True)
 
 
 def is_circular_prime(p, sieve):

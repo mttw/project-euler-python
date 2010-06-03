@@ -3,6 +3,61 @@ from number import * #@UnusedWildImport
 
 class Test(unittest.TestCase):
 
+    def test_is_hexagonal_number(self):
+        #     1, 6, 15, 28, 45, ...
+        self.assertTrue(is_hexagonal_number(1))
+        self.assertTrue(is_hexagonal_number(6))
+        self.assertTrue(is_hexagonal_number(15))
+        self.assertTrue(is_hexagonal_number(28))
+        self.assertTrue(is_hexagonal_number(45))
+
+        self.assertFalse(is_hexagonal_number(2))
+        self.assertFalse(is_hexagonal_number(3))
+        self.assertFalse(is_hexagonal_number(4))
+        self.assertFalse(is_hexagonal_number(5))
+        self.assertFalse(is_hexagonal_number(11))
+
+        self.assertTrue(is_hexagonal_number(hexagonal_number(1000)))
+        self.assertFalse(is_hexagonal_number(hexagonal_number(1000)+1))
+
+    def test_is_pentagonal_number(self):
+        #1, 5, 12, 22, 35, 51, 70, 92, 117, 145, ...
+        self.assertTrue(is_pentagonal_number(1))
+        self.assertTrue(is_pentagonal_number(5))
+        self.assertTrue(is_pentagonal_number(12))
+        self.assertTrue(is_pentagonal_number(22))
+        self.assertTrue(is_pentagonal_number(35))
+        self.assertTrue(is_pentagonal_number(51))
+        self.assertTrue(is_pentagonal_number(70))
+        
+        self.assertFalse(is_pentagonal_number(2))
+        self.assertFalse(is_pentagonal_number(3))
+        self.assertFalse(is_pentagonal_number(4))
+        self.assertFalse(is_pentagonal_number(6))
+
+        self.assertFalse(is_pentagonal_number(10))
+        self.assertFalse(is_pentagonal_number(11))
+        
+        self.assertTrue(is_pentagonal_number(pentagonal_number(1000)))
+        self.assertFalse(is_pentagonal_number(pentagonal_number(1000)+1))
+
+    def test_is_triangle_number(self):
+        self.assertTrue(is_triangle_number(1))
+        self.assertTrue(is_triangle_number(3))
+        self.assertTrue(is_triangle_number(6))
+        self.assertTrue(is_triangle_number(10))
+        self.assertTrue(is_triangle_number(15))
+        
+        self.assertFalse(is_triangle_number(2))
+        self.assertFalse(is_triangle_number(4))
+        self.assertFalse(is_triangle_number(5))
+        self.assertFalse(is_triangle_number(11))
+
+        self.assertTrue(is_triangle_number(triangle_number(1000)))
+        self.assertFalse(is_triangle_number(triangle_number(1000)+1))
+
+
+
     def test_is_prime(self):
         self.assertFalse(is_prime(1))
         self.assertTrue(is_prime(2))
