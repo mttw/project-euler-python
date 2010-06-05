@@ -3,6 +3,9 @@ from number import * #@UnusedWildImport
 
 class Test(unittest.TestCase):
 
+    def test_comb(self):
+        self.assertEquals(10, comb(5, 2))
+        
     def test_is_hexagonal_number(self):
         #     1, 6, 15, 28, 45, ...
         self.assertTrue(is_hexagonal_number(1))

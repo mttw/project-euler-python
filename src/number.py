@@ -1,6 +1,10 @@
 import math
 
 
+def comb(n, r):
+    return math.factorial(n)/(math.factorial(r) * math.factorial(n - r))
+
+
 def triangle_number(n):
     return n*(n+1)/2
 
@@ -69,7 +73,7 @@ def is_pandigital(n, r = None):
 
 
 def factorial(n):
-    return reduce(lambda x,y: x*y, range(2,n+1), 1)
+    return math.factorial(n)
 
 def sum_of_digits(num):
     return sum([int(d) for d in str(num)])
