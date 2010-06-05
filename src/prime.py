@@ -36,6 +36,8 @@ def miller_rabin(n, s=50):
       - True, if n is probably prime.
       - False, if n is complex.
     """
+    if n == 1:
+        return False
     for j in xrange(1, s + 1): #@UnusedVariable
         a = random.randint(1, n - 1)
         if (test(a, n)):
