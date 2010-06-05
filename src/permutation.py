@@ -1,3 +1,7 @@
+def is_permuted(num, ref):
+    return sorted(str(num)) == sorted(str(ref))
+
+
 
 def all_perms(str):
     if len(str) <=1:

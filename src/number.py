@@ -1,5 +1,4 @@
 import math
-from projecteuler import sum_of, product_of
 
 
 def triangle_number(n):
@@ -70,10 +69,10 @@ def is_pandigital(n, r = None):
 
 
 def factorial(n):
-    return product_of(range(2,n+1))
+    return reduce(lambda x,y: x*y, range(2,n+1), 1)
 
 def sum_of_digits(num):
-    return sum_of([int(d) for d in str(num)])
+    return sum([int(d) for d in str(num)])
 
 
 def lsqrt(number):
