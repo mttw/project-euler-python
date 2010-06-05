@@ -1,5 +1,4 @@
 """If all the numbers from 1 to 1000 (one thousand) inclusive were written out in words, how many letters would be used? """
-from projecteuler import sum_of
 import re
 
 dict = {
@@ -74,5 +73,5 @@ def number_of_letters_for_number(n):
 
 if __name__ == '__main__':
     N = 1000
-    result = sum_of([number_of_letters_for_number(i) for i in range(1, N+1)])
+    result = sum([number_of_letters_for_number(i) for i in range(1, N+1)])
     print("If all the numbers from 1 to %(N)d were written out in words, %(result)d letters would be used" % vars())

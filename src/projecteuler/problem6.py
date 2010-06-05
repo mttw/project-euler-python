@@ -1,13 +1,12 @@
 '''
 What is the difference between the sum of the squares and the square of the sums?
 '''
-from projecteuler import sum_of
 
 def sum_of_squares(items):
-    return sum_of(map(lambda x: x**2, items))
+    return sum(map(lambda x: x**2, items))
 
 def square_of_sums(items):
-    return sum_of(items)**2
+    return sum(items)**2
 
 
 items = range(1,101)

@@ -2,7 +2,6 @@
 Find the sum of all the primes below two million.
 '''
 from sieve import gen_sieve_eratosthenes
-from projecteuler import sum_of
 
 def primes_below(ceiling):
     primes = [p for p in gen_sieve_eratosthenes(ceiling)]
@@ -12,7 +11,7 @@ def primes_below(ceiling):
         return primes
 
 def solve(ceiling):
-    return sum_of(primes_below(ceiling))
+    return sum(primes_below(ceiling))
     
 def main():    
     ceiling = 2000000

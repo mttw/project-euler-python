@@ -4,10 +4,8 @@ Find the product of the coefficients, a and b, for the quadratic expression that
 
 from sieve import sieve_eratosthenes
 from projecteuler import list_to_dict
-from prime import miller_rabin
 from itertools import product
 from itertools import takewhile
-from test.test_itertools import take
 
 
 def quadratics(a,b, start):

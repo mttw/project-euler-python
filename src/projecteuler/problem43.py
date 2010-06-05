@@ -47,4 +47,4 @@ def solve():
     print("The sum of all 0 to 9 pandigital numbers with the substring divisibility property given in problem 43 is %(result)d" % vars())
     print(time.clock()-start)
 if __name__ == "__main__":
-    solve1()
+    solve()
