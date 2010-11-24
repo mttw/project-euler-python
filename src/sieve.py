@@ -5,6 +5,9 @@ from number import lsqrt
 def is_prime(n, sieve_map):
     return n in sieve_map
 
+def print_sieve_stats(sieve):
+    print("Sieve prepared: " + str(len(sieve)) + " primes, highest prime: " + str(sieve[-1]))
+
 def sieve_eratosthenes(ceiling): 
     if ceiling==2: return [2]
     elif ceiling<2: return []
@@ -59,3 +62,15 @@ def gen_sieve_eratosthenes(ceiling=None):
         if ceiling is None or highest_prime > last_val:
             found_primes.append((current_val, current_val ** 2))
 
+
+def find_product_primes_below(N):
+    """Returns the list of primes ps=[2, 3, 5, ...] 
+    where the product of ps is below N
+    """ 
+    prod = 1
+    l = []
+    for p in gen_sieve_eratosthenes():
+        prod *= p
+        if prod >= N:
+            return l
+        l.append(p)

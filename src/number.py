@@ -1,4 +1,16 @@
 import math
+from itertools import takewhile
+
+def powers(x, start):
+    y = x**start
+    exp = start
+    while True:
+        yield (x,exp)
+        exp += 1
+        y *= x
+
+def powers_below(x, N, start=1):
+    return list(takewhile(lambda (x,exp): x**exp <= N, powers(x, start)))  
 
 
 def comb(n, r):

@@ -1,4 +1,66 @@
 import random
+from itertools import takewhile, count
+from permutation import product
+from projecteuler import product_of
+from number import powers_below
+
+
+
+def product_of_factorization(pps):
+    return product_of([x**exp for (x,exp) in pps])
+        
+def prime_powers_below(primes_base, N):
+    # TODO code has to be fixed, is just an estimate for ceiling N
+    prod = product_of(primes_base)
+    prime_powers_base = [powers_below(p, (N*p)/prod) for p in primes_base]
+    for factorization in product(prime_powers_base):
+        if product_of_factorization(factorization) <= N:
+            yield factorization
+
+def factorizations_below(N, primes, **kwds):
+    for r in count(1):
+        prime_combinations = combine_primes_below(r, N, primes)
+        if prime_combinations == []:
+            break
+        for ps in prime_combinations:
+            for factorization in prime_powers_below(ps, N):
+                yield factorization
+
+
+def combine_primes_below(r, N, primes):
+    pos = range(r)
+    L = len(primes) 
+    solutions = []
+    if r > L:
+        return solutions
+    
+    while True:    
+        ps = [primes[j] for j in pos]
+        prod = product_of(ps)
+        if prod <= N:
+            solutions.append(ps)
+        
+        index = -1
+        for i in range(0, r):
+            if pos[r-1-i] == L-1-i:
+                prod = product_of(ps[:r-1-i])
+                continue
+            elif prod > N:
+                prod = product_of(ps[:r-1-i])
+                continue
+            else:
+                index = r-1-i
+                break
+        if index == -1:
+            break
+        pos[index] += 1
+        for i in range(index+1, r):
+            pos[i] = pos[i-1] + 1
+    
+    return solutions
+
+
+
 
 def to_binary(n):
     r = []
